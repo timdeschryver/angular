@@ -91,6 +91,29 @@ For example, the hypothetical "Hello World" schematic might have the following s
 
 You can see examples of schema files for the Angular CLI command schematics in [`@schematics/angular`](https://github.com/angular/angular-cli/blob/7.0.x/packages/schematics/angular/application/schema.json).
 
+
+#### Deprecated options
+
+To flag an option as deprecated, you can use the `x-deprecated` property.
+The assigned value will be used to warn the user when the deprecated option is used.
+
+<code-example language="json" header="src/hello-world/schema.json">
+
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "minLength": 1,
+            "default": "world"
+        },
+        "useColor": {
+            "type": "boolean",
+            "x-deprecated": "This option will be removed in the next version.",
+        }
+    }
+}
+</code-example>
+
 ### Schematic prompts
 
 Schematic *prompts* introduce user interaction into schematic execution.
@@ -255,6 +278,9 @@ The following JSON schema is a complete description of the long-form syntax for 
 </code-example>
 
 {@a cli}
+
+
+
 
 ## Schematics CLI
 
